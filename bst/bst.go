@@ -97,3 +97,21 @@ func (n *Node) LowestCommonAncestor(a int, b int) (ancestor *Node) {
 	// If we reach at this point... it means that here's our ancestor!
 	return n
 }
+
+// This method will print the left side of the BST
+func (n *Node) PrintLeft(level int, maxLevel *int) {
+	// No more nodes to iterate
+	if n == nil {
+		return
+	}
+	// Check if the current iteration corresponds to the
+	// first node of the BST level
+	if *maxLevel < level {
+		fmt.Println(n.Value)
+		*maxLevel = level
+	}
+	// Do the recursion for the left side of the current node
+	n.Left.PrintLeft(level+1, maxLevel)
+	// Same for the right side
+	n.Right.PrintLeft(level+1, maxLevel)
+}
