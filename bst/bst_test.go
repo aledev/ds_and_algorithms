@@ -17,6 +17,7 @@ func TestSearch_ValueExists(t *testing.T) {
 	// Comparison
 	if result != expected {
 		t.Errorf("%s method failed, expected %t, but got %t", methodName, expected, result)
+		return
 	}
 
 	// Success!
@@ -38,6 +39,7 @@ func TestSearch_ValueNotExists(t *testing.T) {
 	// Comparison
 	if result != expected {
 		t.Errorf("%s method failed, expected %t, but got %t", methodName, expected, result)
+		return
 	}
 
 	// Success!
