@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	tree := &Node{Key: 100}
+	tree := &Node{Value: 100}
 
 	fmt.Println(tree)
 
