@@ -42,7 +42,6 @@ func (n *Node) Search(v int) bool {
 	if n == nil {
 		return false
 	}
-
 	// Check if the current value is greater than the current node value
 	if n.Value < v {
 		// In this case we will check if the value exists inside
@@ -53,7 +52,6 @@ func (n *Node) Search(v int) bool {
 		// in the left node, so pretty same as the previous case... we use recursion
 		return n.Left.Search(v)
 	}
-
 	// So if we reach this point.. it seems that the current
 	// node value is equals to the "v" value
 	return true
@@ -77,4 +75,25 @@ func (n *Node) AddNodes(nodes []int) {
 	for i := 0; i < len(nodes); i++ {
 		n.Insert(nodes[i])
 	}
+}
+
+// This method will return the Lowest Common Ancestor
+// for two given numbers: a, b.
+func (n *Node) LowestCommonAncestor(a int, b int) (ancestor *Node) {
+	// There's no future here boy... :(
+	if n == nil {
+		return nil
+	}
+	// If a and b are smaller than the current node,
+	// then we should continue searching on the left child
+	if n.Value > a && n.Value > b {
+		return n.Left.LowestCommonAncestor(a, b)
+	}
+	// Otherwise if a and b are greater than the current node,
+	// then definitely we should continue searching on the right child
+	if n.Value < a && n.Value < b {
+		return n.Right.LowestCommonAncestor(a, b)
+	}
+	// If we reach at this point... it means that here's our ancestor!
+	return n
 }
