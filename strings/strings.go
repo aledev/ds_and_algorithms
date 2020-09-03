@@ -21,6 +21,6 @@ func NonRepeatingChar(value string) byte {
 			break
 		}
 	}
-	// This value also could be null by the way...
+	// Here's your order sir!
 	return result
 }
